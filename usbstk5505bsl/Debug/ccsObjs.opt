@@ -1,0 +1,1 @@
+"./bsl/usbstk5505.obj" "./bsl/usbstk5505_gpio.obj" "./bsl/usbstk5505_i2c.obj" "./bsl/usbstk5505_i2s.obj" "./bsl/usbstk5505_led.obj" "./bsl/usbstk5505_spirom.obj" "../usbstk5505bsl.lib" 
