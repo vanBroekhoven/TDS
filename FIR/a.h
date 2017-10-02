@@ -1,0 +1,6 @@
+#define COEFFICIENTS_LENGTH 21
+const Int16 COEFFICIENTS[COEFFICIENTS_LENGTH] = {
+ 1043,  819,    0,      -1054,  -1738,  -1475,  0,  2458,
+ 5215,  7375,   8192,   7375,   5215,   2458,   0,  -1475,
+ -1738, -1054,  0,      819,    1043
+};
