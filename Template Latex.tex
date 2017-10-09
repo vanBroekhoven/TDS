@@ -1,0 +1,134 @@
+\documentclass[11pt,a4paper]{article}
+
+%used packages
+\usepackage{graphicx}
+\usepackage[dutch]{babel} 
+\usepackage{scrextend}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{listings}
+
+%Document settings
+\raggedbottom
+\graphicspath{ {images/} }
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+%Custom commando's
+\newcommand\litem[1]{\item{\bfseries#1.\space}}
+\newcommand\tabelkleur{\rowcolor[HTML]{FFCC67}}
+
+%Custum Variables
+\def\auteur{Dennis Bakelaar, Tim van Broekhoven, Roy Lobbezoo, Thijs de Ruiter,  Bas Vuijk}
+\def\titel{LORA verkeersdetectie} 
+\def\datum{\today}
+\def\versie{0.1}
+\def\status{concept}
+\def\subtitel{Plan van aanpak}
+\def\bedrijf{Soltegro}
+\def\tabelkleur{FFCC67}
+
+%Settings for Footer and Header
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\subtitel}
+\lhead{\titel}
+\lfoot{\datum}
+\rfoot{Pagina \thepage \hspace{1pt} /  \pageref{LastPage}}
+
+%Settings for document spacing
+\titlespacing{\section}{0pt}{*0}{*0}
+\titlespacing{\subsection}{0pt}{*0}{*0}
+\titlespacing{\subsubsection}{0pt}{*0}{*0}
+
+%Settings for code sinppeds
+\lstset{basicstyle=\ttfamily,
+	showstringspaces=false,
+	commentstyle=\color{red},
+	keywordstyle=\color{blue}
+}
+
+\begin{document}
+	
+	\begin{titlepage}
+		
+		\centering
+		\includegraphics[width=0.80\textwidth]{logo}\par\vspace{1cm}
+		{\scshape\LARGE \bedrijf \par}
+		\vspace{1cm}
+		{\huge\bfseries \titel \par}
+		{\huge\itshape \subtitel \par}
+		\vspace{1cm}
+		{\Large\itshape \auteur \par}
+		\vspace{1cm}
+		{\Large\itshape versie \versie\par}
+		{\Large\itshape \status}		
+		
+		\vfill
+		Vak:\par
+		ELEEEP71
+		
+		\vfill
+		{\large \datum \par}
+	\end{titlepage}
+
+	\section{Voorwoord}
+	
+	\clearpage
+	
+	\tableofcontents
+	
+	\clearpage
+	
+	\listoffigures
+	
+	\clearpage
+	\listoftables
+	
+	\clearpage
+	
+	\section{Versiehistorie}
+	\begin{table}[H]
+		\centering
+		\label{Versiehistorie}
+		\begin{tabular}{|p{1cm}|p{2cm}|p{6cm}|p{2cm}|}
+			\hline
+			\rowcolor[HTML]{FFCC67}
+			\textbf{Versie} & \textbf{Datum} & \textbf{Wijzigingen} & \textbf{Auteur} \\ \hline
+			0.1    & 07-09-2017 & Template    & Thijs \\ \hline
+			0.2	   & 19-09-2017 & Oplevering eerste versie  & Groep \\ \hline
+			&       &             &        \\ \hline
+		\end{tabular}
+		\caption {Versiehistorie} \label{tab:title} 
+	\end{table}	
+
+
+	\section{sectie}
+		
+		\subsection{Requirements}
+			\begin{itemize}
+				\item items
+			\end{itemize}
+	
+	\section{sectie}
+	
+	\subsection{subsectie}
+	
+		
+			\begin{enumerate}[label=\emph{\alph*)}]
+				\litem{item} item beschrijving
+			\end{enumerate}
+	
+	\begin{lstlisting}
+\end{lstlisting}
+
+	\bibliographystyle{plain}
+	\bibliography{bibligraphy}
+
+\end{document}
