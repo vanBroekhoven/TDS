@@ -30,7 +30,8 @@ main.obj: /home/roy/Downloads/usbstk5505_v2/c55xx_csl/inc/csl_intc.h
 main.obj: /home/roy/Downloads/usbstk5505_v2/c55xx_csl/inc/csl_error.h
 main.obj: /home/roy/Downloads/usbstk5505_v2/c55xx_csl/inc/csl_types.h
 main.obj: ../aic3204.h
-main.obj: ../a.h
+main.obj: ../fdacoefs.h
+main.obj: ../fir_buffer.h
 
 ../main.c: 
 /opt/ti/ccsv7/tools/compiler/c5500_4.4.1/include/stdio.h: 
@@ -62,4 +63,5 @@ main.obj: ../a.h
 /home/roy/Downloads/usbstk5505_v2/c55xx_csl/inc/csl_error.h: 
 /home/roy/Downloads/usbstk5505_v2/c55xx_csl/inc/csl_types.h: 
 ../aic3204.h: 
-../a.h: 
+../fdacoefs.h: 
+../fir_buffer.h: 

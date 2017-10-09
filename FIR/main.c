@@ -9,7 +9,9 @@
 #include <csl_intc.h>
 
 #include "aic3204.h"
-#include "a.h"
+//#include "a.h"
+#include "fdacoefs.h"
+#include "fir_buffer.h"
 
 #define SAMPLES_PER_SECOND 8000 // possible values: 48000, 24000, 16000, 12000, 9600, and 8000
 #define ADC_GAIN  0// range: 0dB to 48 dB
@@ -18,28 +20,17 @@
 
 extern void VECSTART(void);
 
-Int16 buffer[COEFFICIENTS_LENGTH];
-int currentBufferIndex = 0;
-
+FIRBuffer *buffer;
 interrupt void I2S0receive() {
-    Int32 output = 0;
-    buffer[0] = AIC3204_readLeft();
 
-    int k;
-    for(k = 0; k < COEFFICIENTS_LENGTH; k++){
-        output += (Int32)COEFFICIENTS[k] * (Int32)buffer[k];
-    }
-    int i;
-    for(i = COEFFICIENTS_LENGTH - 1; i > 0; i--) {
-        buffer[i] = buffer[i-1];
-    }
-
-
-    AIC3204_writeLeft((Int16)(output>>15));
+    fir_buffer_store_sample(buffer, AIC3204_readLeft());
+    AIC3204_writeLeft(fir_buffer_output_sample(buffer, COEFFICIENTS));
 
 }
 
 int main(void) {
+    buffer = fir_buffer_new(COEFFICIENTS_LENGTH);
+
     USBSTK5505_init();
     AIC3204_init(SAMPLES_PER_SECOND, ADC_GAIN, DAC_GAIN);
     IRQ_setVecs((Uint32)(&VECSTART));
