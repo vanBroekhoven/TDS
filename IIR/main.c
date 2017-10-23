@@ -11,9 +11,9 @@
 
 #include "aic3204.h"
 //#include "a.h"
-#include "iir_fdacoefs.h"
+#include "iir_fdacoefs3.h"
 
-#define SAMPLES_PER_SECOND 48000 // possible values: 48000, 24000, 16000, 12000, 9600, and 8000
+#define SAMPLES_PER_SECOND 8000 // possible values: 48000, 24000, 16000, 12000, 9600, and 8000
 #define ADC_GAIN  0// range: 0dB to 48 dB
 #define DAC_GAIN 0// range: -6dB to 29dB
 
@@ -28,7 +28,7 @@ interrupt void I2S0receive() {
 }
 
 int main(void) {
-    buffer = iir_buffer_new(COEFFICIENTS_LENGTH);
+    buffer = iir_buffer_new(COEFFICIENTS_LENGTH, 1);
 
     USBSTK5505_init();
     AIC3204_init(SAMPLES_PER_SECOND, ADC_GAIN, DAC_GAIN);
