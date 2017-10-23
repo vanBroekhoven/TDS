@@ -32,7 +32,6 @@ Int16 fir_buffer_output_sample(FIRBuffer *buffer, const Int16 *coefficients) {
         }
         output += (Int32)coefficients[k] * (Int32)buffer->buffer[bufferIndex];
     }
-    int i;
 
-    return((Int16)(output >> 16));
+    return((Int16)(output >> 15));
 }
