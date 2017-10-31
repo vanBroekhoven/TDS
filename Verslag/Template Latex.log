@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2017.9.28)  24 OCT 2017 13:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2017.9.28)  26 OCT 2017 12:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -339,16 +339,20 @@ Missing character: There is no ™ in font cmr10!
 [5
 
 ]
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+
 No file "Template Latex".bbl.
 
-Underfull \hbox (badness 4366) in paragraph at lines 154--157
+Underfull \hbox (badness 4366) in paragraph at lines 184--187
 []\OT1/cmr/m/it/10.95 A Be-gin-ner's Guide to Di-gi-tal Sig-nal Pro-ces-sing (D
 SP)\OT1/cmr/m/n/10.95 , Ana-
  []
 
-
+[6] 
 AED: lastpage setting LastPage
-[6] (./Template Latex.aux)
+[7] (./Template Latex.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -368,10 +372,10 @@ ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on "Template Latex.pdf" (7 pages, 152890 bytes).
+Output written on "Template Latex.pdf" (8 pages, 151931 bytes).
 PDF statistics:
- 57 PDF objects out of 1000 (max. 8388607)
- 39 compressed objects within 1 object stream
+ 60 PDF objects out of 1000 (max. 8388607)
+ 41 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
