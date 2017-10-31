@@ -200,7 +200,9 @@ const Int16 DEN[5] = {
 \clearpage
 
 \subsection{Het resultaat}	
-
-    \includegraphics[width=0.80\textwidth]{IIRrealisatie}\par\vspace{1cm}
+    Om het fir-filter dat is gerealiseerd te testen is een functiegenerator gebruikt om een bepaald frequentieberijk te sweepen. Dit bereik was van 100 tot 4000 hertz. De tijd dat deze sweep daarover deed varieerde iets omdat anders gaten vielen in de peak-hold methode van de scope. De uitgang van de EzDSP wedr aangesloten op de microfoonaansluiting van een pc. Op deze pc werd het Soundcard Oscilloscope programma uitgevoerd om de uitvoer te bekijken. Op deze manier kon een hogere Signal to Noise ratio worden gemeten dan met de echte oscilloscopen die aanwezig waren. 
+    \\\\Hieronder ziet u een screenshot van dit programma met daarop een frequentie analyze.
+    \\\includegraphics[width=0.80\textwidth]{IIRrealisatie}\par\vspace{1cm}
+    Wanneer er een probleem zou zijn met een IIR filter is dat meteen zichtbaar omdat het filter zich dan totaal niet gedraagd zoals gewenst is, maar in dit geval ziet u duidelijk dat hij overheen komt met de voorspelling van Matlab.
     
 \clearpage
