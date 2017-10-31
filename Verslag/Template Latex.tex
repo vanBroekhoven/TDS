@@ -133,9 +133,15 @@
 	
 	\section{Ontwerp en realisatie FIR filter}
 	
-		\subsection{Requirements FIR filter}
+	\subsection{What where the requirements for this filter?}
+	Het filter dat ons groepje heeft moeten implementeren was een hoogdoorlaatfilter met een cut-off frequentie van 1500 hertz. 
+	Het filter moet een minimale orde van 20 hebben. Er moest gebruik worden gemaakt van het blackmann-window.
 	
-		\subsection{Coefficienten bepalen}
+	\subsection{How are the coefficients determined?}
+	Als samplerate is gekozen voor 8000 hertz. Dit is genoeg om de werking van het filter te kunnen aantonen, maar maakt het filter ongeschikt voor toepassingen in geluid. 
+	Kwa orde is gekozen voor een 100'ste orde filter. Dit hebben we gedaan om de lijn van het filter stijler te maken.
+	Het filter is gequantificeerd voor fixed-point getallen. Dit omdat de EzDSP beter presteerd met fixed-point getallen.
+
 	
 		\begin{enumerate}[label=\emph{\alph*)}]
 			\litem{item} Describe the settings you 					used in MATLAB’s FDAtool and explain the 					choices you made.
@@ -330,7 +336,7 @@ const Int16 COEFFICIENTS[COEFFICIENTS_LENGTH] = {
 55,      0,    -40,    -26,     12,     25,      8,    -12,    -12,
 0,      7,      4,     -2,     -3,     -1,      1,      1,      0,
 0,      0
-};
+};	
 	\end{lstlisting}
 	\clearpage
 
