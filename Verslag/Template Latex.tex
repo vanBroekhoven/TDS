@@ -90,13 +90,16 @@ Het vak Training Digitale Signaalbewerking (TDS02) leert de studenten van de min
 
 Omdat digitale filters veel gebruikt worden voor toepassingen in DSB, worden de studenten gevraagd om twee verschillende soorten filters te bouwen voor dit vak: Een 'finite impulse response' (FIR) filter en een 'infinite impulse response' (IIR) filter. 
 
-De requirements  voor deze assignments krijgen de studenten van hun docenten. Voor onze FIR assignment moesten we een hoogdoorlaatfilter maken met een kantelfrequentie van 1500 Hz, een minimale orde van 20 en met een Blackman window. Voor de IIR assignment moesten we een bandstopfilter maken die signalen tussen de 800 en 1000 Hz verzwakt, een minimale orde heeft van 20 en een Chebyshev I type window heeft. 
+De requirements  voor deze assignments krijgen de studenten van hun docenten. Voor onze FIR assignment moesten we een hoogdoorlaatfilter maken en voor de IIR assignment moesten we een bandstopfilter. 
 	
 De werkwijze van het uitvoeren van de assignments begint met het maken van de filter in matlab. Vervolgens kunnen de coefficienten door matlab geproduceerd worden die nodig zijn voor de digitale filter. Met die coefficienten kan de code voor de filter worden geschreven in CCS. Die code moet vervolgens op het DSP development-bordje worden geupload. Een pulsgenerator wordt dan aangesloten op het ingangssignaal van dat bordje en de audio-ingang van een computer wordt aangesloten op de het uitgangssignaal van het development-bordje, waardoor op die computer een scoopbeeld gegenereerd kan worden m.b.v. software voor scoopbeelden. 
 
 De grootste uitdaging van deze assignments bleek te zitten in de wiskundige formules die we in de code moesten toepassen. Vooral voor de IIR filter was dit een uitdaging en is er helaas niet volledig voldaan aan de eisen die door de docenten gesteld zijn. 
 	
-	
+De grootste uitdaging van deze assignments bleek te zitten in de wiskundige formules die we in de code moesten toepassen. Vooral voor de IIR filter was dit een uitdaging en is er helaas niet volledig voldaan aan de eisen die door de docenten gesteld waren. 
+
+Kwa code is een deel van de CXX stof meegenomen. Zo hebben we een struct waar de staat en informatie over de buffers van de filters in wordt opgeslagen. Daar kunnen vervolgens bewerkingen op worden gedaan. Zoal het opslaan van nieuwe samples en het berekenen van een outputsample. Dit maakte de code beter leesbaar en herbruikbaar.
+	 
 		
 	
 	\clearpage
