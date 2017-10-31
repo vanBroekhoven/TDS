@@ -1,10 +1,10 @@
 \section{Ontwerp en realisatie FIR filter}
 
-\subsection{What where the requirements for this filter?}
+\subsection{Requirements}
 Het filter dat moest worden gerealiseerd is een hoogdoorlaatfilter met een cut-off frequentie van 1500 Hertz. 
 Het filter moest een minimale orde van 20 hebben. Er moest gebruik worden gemaakt van het blackmann window.
 
-\subsection{How are the coefficients determined?}
+\subsection{Coefficienten}
 Als samplerate is gekozen voor 8000 hertz. Dit is genoeg om de werking van het filter te kunnen aantonen, maar maakt het filter ongeschikt voor toepassingen in geluid. 
 Kwa orde is gekozen voor een 100'ste orde filter. Dit hebben we gedaan om de lijn van het filter stijler te maken.
 Het filter is gequantificeerd voor fixed-point getallen. Dit omdat de EzDSP beter presteerd met fixed-point getallen.
@@ -24,7 +24,7 @@ Het filter is gequantificeerd voor fixed-point getallen. Dit omdat de EzDSP bete
     \clearpage
     \subsection{Code}
 
-    \subsubsection{de main code.}
+    \subsubsection{de main code}
         
         \begin{lstlisting}[language=c]
 #include <stdio.h>
@@ -174,8 +174,10 @@ const Int16 COEFFICIENTS[COEFFICIENTS_LENGTH] = {
         
         
             \subsection{Het resultaat}
-            
-    \includegraphics[width=0.80\textwidth]{FIRrealisatie}\par\vspace{1cm}            
-            
+          
+In de orderstaande afbeelding ziet u het resultaat van het FIR filter. Er is een functiegenerator aangesloten op de ingang van de EzDSP. Dierop is een Sweep functie ingesteld die binnen de ingestelde tijd sweeps uitvoerde van 100 tot 4000 Hertz. Deze ingestelde tijd moest vari\"eren om een strakkere lijn op de oscilloscoop te krijgen. De uitgang van de EzDSP werd op de audio-ingang van de pc aangesloten om op de pc een scoopbeeld te kunnen genereren via het Soundcard Oscilloscope programma dat in de handleiding van TDS werd aangeraden. Het voordeel van dit programma t.o.v. een normale oscilloscoop is dat hiermee een hogere Signal to Noise ratio kan worden gemeten.
+  
+    \includegraphics[width=0.80\textwidth]{FIRrealisatie}\par\vspace{1cm}            	
+		            
             \clearpage
             
