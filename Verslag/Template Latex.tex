@@ -15,7 +15,7 @@
 \usepackage{listings}
 \usepackage{hyperref}
 \usepackage{amsmath}
-
+ 
 
 %Document settings
 \raggedbottom
@@ -125,7 +125,7 @@
 		\subsection{Digitale filter}
 		Volgens Steven W. Smith \cite{DSPguide} bewerkt een digitale filter een digitaal en tijd-discreet signaal om bepaalde frequenties uit dat signaal te verzwakken. In de telecomunicatie wordt bijvoorbeeld het signaal van het bericht gemengd met de draaggolf van het bericht. Om dit bericht vervolgens uit te kunnen lezen moet er een filter gebruikt worden om de frequenties van het draaggolfsignaal eruit te filteren. Dit kan gedaan worden m.b.v. een analoge of digitale filter. Analoge filters hebben een groot bereik met zowel amplitude als frequentie. Ook kunnen analoge filters heel precies worden ingesteld. Digitale filters hebben echter meer voordelen dan analoge filters. Digitale filters zijn flexibel, betrouwbaar, makkelijk in schaal te vergroten en om de complexiteit van een filter te verhogen moet de software worden aangepast i.p.v. de hardware. 
 		
-Om analoge signalen digitaal te kunnen filteren moeten de 	signalen worden gesampled en gekwantificeerd worden. Hierdoor ontstaat een digitaal en tijd-discreet signaal. 
+Om analoge signalen digitaal te kunnen filteren moeten de signalen worden gesampled en gekwantificeerd worden. Hierdoor ontstaat een digitaal en tijd-discreet signaal. 
 
 Filters kunnen gezien worden als een overdrachtsfunctie:
  
@@ -138,13 +138,13 @@ Waarbij X(s) de input is van de filter en Y(s) de uitgang van de filter.
 De overdrachtsfunctie kan gespecificeerd worden in het frequentiedomein en is een wiskundige formule die het gedrag van de filter omschrijft. 
 
 		
-		\subsection{De opdracht}		
+	\subsection{De opdracht}		
 		
 	\input{fir.tex}
 	\input{iir.tex}
 
-	\section{optimizatie}
-	De enige optimalitaties is uitgevoerd heeft niets te maken met de prestaties tijdens het uitvoeren op de EzDSP. Alleen is de leesbaarheid van de code verbeterd doordat de staat van de filters in een struct wordt bijgehouden. Er zijn functies beschreven die iets in de buffer op kunnen slaan of een output sample kunnen berekenen. Hierdoor is de code ook beter herbruikbaar. 
+	\section{Optimalisatie}
+	De enige optimalisaties is uitgevoerd heeft niets te maken met de prestaties tijdens het uitvoeren op de EzDSP. Alleen is de leesbaarheid van de code verbeterd doordat de staat van de filters in een struct wordt bijgehouden. Er zijn functies beschreven die iets in de buffer op kunnen slaan of een output sample kunnen berekenen. Hierdoor is de code ook beter herbruikbaar. 
 	
 
 	\section{Conclusie en aanbevelingen}
