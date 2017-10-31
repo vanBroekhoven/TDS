@@ -5,8 +5,12 @@ Het IIR filter moet een Band-Stop filter worden. De minimale orde die verwacht w
 \subsection{Coefficienten bepalen}
 
 \begin{enumerate}[label=\emph{\alph*)}]
-    \litem{Orde} teruggeschroeft naar 4 om het filter met een elkele sectie stabiel te krijgen.
-    \litem{Fsample} teruggeschroeft om het filter stabiel te krijgen.
+    \litem{Orde} teruggeschroeft naar 4.
+    \litem{type} IIR: Chebyshev I - Direct Form 1 
+    \litem{Fsample} teruggeschroeft naar 8kHz.
+    \litem{Fstop} 800Hz
+    \litem{Fstart} 1000Hz
+    \litem{Sections} Single-section.
     \litem{Fixed-point} getallen gebruikt omdat deze geschikt zijn voor de EzDSP. Deze bevat voor Floating-point getallen namelijk geen hardware ondersteuning.
 \end{enumerate}
 
