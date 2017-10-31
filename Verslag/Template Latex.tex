@@ -85,23 +85,17 @@
 	\end{titlepage}
 
 	\section{Samenvatting}
-	-In de eerste weken begint de les met een uitleg van de docent over de theorie achter deze assignments, die het doel hebben om de studenten te trainen in digitale signaalbewerking.	
+
+Het vak Training Digitale Signaalbewerking (TDS02) leert de studenten van de minor 'Embedded systems' om de theorie die hoort bij Digitale Signaal Bewerking (DSB) in de praktijk te brengen. Het doel van digitale signaalbewerking is om met de informatie van het ingangssignaal een uitgangssignaal te produceren die bruikbaar is voor een bepaalde toepassing. 
+
+Omdat digitale filters veel gebruikt worden voor toepassingen in DSB, worden de studenten gevraagd om twee verschillende soorten filters te bouwen voor dit vak: Een 'finite impulse response' (FIR) filter en een 'infinite impulse response' (IIR) filter. 
+
+De requirements  voor deze assignments krijgen de studenten van hun docenten. Voor onze FIR assignment moesten we een hoogdoorlaatfilter maken met een kantelfrequentie van 1500 Hz, een minimale orde van 20 en met een Blackman window. Voor de IIR assignment moesten we een bandstopfilter maken die signalen tussen de 800 en 1000 Hz verzwakt, een minimale orde heeft van 20 en een Chebyshev I type window heeft. 
 	
-	- Het doel van digitale signaalbewerking is om met de informatie van het ingangssignaal een uitgangssignaal te produceren die bruikbaar is voor een bepaalde toepassing.
+De werkwijze van het uitvoeren van de assignments begint met het maken van de filter in matlab. Vervolgens kunnen de coefficienten door matlab geproduceerd worden die nodig zijn voor de digitale filter. Met die coefficienten kan de code voor de filter worden geschreven in CCS. Die code moet vervolgens op het DSP development-bordje worden geupload. Een pulsgenerator wordt dan aangesloten op het ingangssignaal van dat bordje en de audio-ingang van een computer wordt aangesloten op de het uitgangssignaal van het development-bordje, waardoor op die computer een scoopbeeld gegenereerd kan worden m.b.v. software voor scoopbeelden. 
+
+De grootste uitdaging van deze assignments bleek te zitten in de wiskundige formules die we in de code moesten toepassen. Vooral voor de IIR filter was dit een uitdaging en is er helaas niet volledig voldaan aan de eisen die door de docenten gesteld waren. 
 	
-	- Een digitale filter een digitaal en tijd-discreet signaal om bepaalde frequenties uit dat signaal te verzwakken.
-	
-	- Twee soorten filters tijdens dit vak FIR en IIR
-	
-	- Requirements van de docenten gekregen voor de filters
-		- filtertype
-		- filterwindow
-		- samplefrequentie
-		- kantelfrequentie
-		
-	- Eerst in matlab maken
-	
-	- vervolgens matlab coefficienten laten produceren
 	
 		
 	
@@ -183,14 +177,6 @@ De overdrachtsfunctie kan gespecificeerd worden in het frequentiedomein en is ee
   		\textit{A Beginner's Guide to Digital Signal Processing (DSP)},
   		Analog Devices,
   		URL: http://www.analog.com/en/design-center/landing-pages/001/beginners-guide-to-dsp.html 
-
-	
-	\bibitem{}
-  		
-  		\textit{},
-  		Addison Wesley, Massachusetts,
-  		2nd edition,
-  		1994.
   		
 	\bibitem{DSPguide}
   		
