@@ -14,6 +14,7 @@
 \usepackage{xcolor}
 \usepackage{listings}
 \usepackage{hyperref}
+\usepackage{amsmath}
 
 
 %Document settings
@@ -119,13 +120,23 @@
 		TDS02 is een van de vakken die tijdens de minor 'Embedded Systems' wordt gegeven. Het vak bestaat voornamelijk uit practicum assignments die de studenten in groepjes van twee dienen te voltooien. In de eerste weken begint de les met een uitleg van de docent over de theorie achter deze assignments, die het doel hebben om de studenten te trainen in digitale signaalbewerking. Om de assignments te voltooien dienen de studenten gebruik te maken van de 'C5505 eZdsp Development Tool' van Texas Instruments.
 		
 		\subsection{Introductie DSP}
-		Volgens Analog Devices \cite{analog} is een DSP een processor die een  	gedigitaliseerd signaal als geluid, video, temperatuur of positie op wiskundige wijze manipuleerd. Analog Devices ligt toe dat een DSP wordt ontworpen om berekeningen als "optellen", "aftrekken", "vermenigvuldigen" en "delen" in korte tijd te kunnen voltooien. Het doel van deze berekeningen is om met de informatie van het ingangssignaal een uitgangssignaal te produceren die bruikbaar is voor een bepaalde toepassing. 
+		Volgens Analog Devices \cite{analog} is een DSP een processor die een gedigitaliseerd signaal als geluid, video, temperatuur of positie op wiskundige wijze manipuleerd. Analog Devices ligt toe dat een DSP wordt ontworpen om berekeningen als "optellen", "aftrekken", "vermenigvuldigen" en "delen" in korte tijd te kunnen voltooien. Het doel van deze berekeningen is om met de informatie van het ingangssignaal een uitgangssignaal te produceren die bruikbaar is voor een bepaalde toepassing. 
 		
 		\subsection{Digitale filter}
-		Een digitale filter bewerktt een digitaal en tijd-discrete signaal om bepaalde frequenties uit dat signaal te verwijderen.
+		Volgens Steven W. Smith \cite{DSPguide} bewerkt een digitale filter een digitaal en tijd-discreet signaal om bepaalde frequenties uit dat signaal te verzwakken. In de telecomunicatie wordt bijvoorbeeld het signaal van het bericht gemengd met de draaggolf van het bericht. Om dit bericht vervolgens uit te kunnen lezen moet er een filter gebruikt worden om de frequenties van het draaggolfsignaal eruit te filteren. Dit kan gedaan worden m.b.v. een analoge of digitale filter. Analoge filters hebben een groot bereik met zowel amplitude als frequentie. Ook kunnen analoge filters heel precies worden ingesteld. Digitale filters hebben echter meer voordelen dan analoge filters. Digitale filters zijn flexibel, betrouwbaar, makkelijk in schaal te vergroten en om de complexiteit van een filter te verhogen moet de software worden aangepast i.p.v. de hardware. 
 		
-		Bron: http://www.dspguide.com/ch14/1.htm
-		boek ook in pdf  			
+Om analoge signalen digitaal te kunnen filteren moeten de 	signalen worden gesampled en gekwantificeerd worden. Hierdoor ontstaat een digitaal en tijd-discreet signaal. 
+
+Filters kunnen gezien worden als een overdrachtsfunctie:
+ 
+\[
+    H(s) = \frac{Y(s)}{X(s)}
+\]	
+
+Waarbij X(s) de input is van de filter en Y(s) de uitgang van de filter. 
+
+De overdrachtsfunctie kan gespecificeerd worden in het frequentiedomein en is een wiskundige formule die het gedrag van de filter omschrijft. 
+
 		
 		\subsection{De opdracht}		
 		
@@ -353,7 +364,7 @@ const Int16 DEN[5] = {
 	\clearpage
 
 	\section{optimizatie}
-	De enige optimalitaties is uitgevoerd heeft niets te maken met de prestaties tijdens het uitvoeren op de EzDSP. Alleen is de leesbaarheid van de code verbeterd doordat de staat van de filters in een struct wordt bijgehouden. Er zijn functies beschreven die iets in de buffer op kunnen slaan of een output sample kunnen berekenen. Hierdoor is de code ook beter herbruikbaar.
+	De enige optimalitaties is uitgevoerd heeft niets te maken met de prestaties tijdens het uitvoeren op de EzDSP. Alleen is de leesbaarheid van de code verbeterd doordat de staat van de filters in een struct wordt bijgehouden. Er zijn functies beschreven die iets in de buffer op kunnen slaan of een output sample kunnen berekenen. Hierdoor is de code ook beter herbruikbaar. 
 	
 
 	\section{Conclusie en aanbevelingen}
@@ -377,11 +388,12 @@ const Int16 DEN[5] = {
   		2nd edition,
   		1994.
   		
-	\bibitem{Guide to DSP}
+	\bibitem{DSPguide}
   		
   		\textit{Scientist and Engineer's Guide to Digital Signal Processing},
   		Steven W. Smith, Ph.D., 
   		Bertrams,
+  		Hoofdstuk 14,
   		1998.  		
 		
 	\end{thebibliography}
