@@ -1,0 +1,192 @@
+\documentclass[11pt,a4paper]{article}
+
+%used packages
+\usepackage{graphicx}
+\usepackage[dutch]{babel} 
+\usepackage{scrextend}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{amsmath}
+ 
+
+%Document settings
+\raggedbottom
+\graphicspath{ {images/} }
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+%Custom commando's
+\newcommand\litem[1]{\item{\bfseries#1.\space}}
+\newcommand\tabelkleur{\rowcolor[HTML]{FFCC67}}
+
+
+%Custum Variables
+\def\auteureen{Roy Buitenhuis, 0895833}
+\def\auteurtwee{Tim van Broekhoven, 0893122}
+\def\titel{Verslag TDS01} 
+\def\datum{\today}
+\def\versie{0.1}
+\def\status{concept}
+\def\subtitel{Plan van aanpak}
+\def\bedrijf{}
+\def\tabelkleur{FFCC67}
+
+%Settings for Footer and Header
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\subtitel}
+\lhead{\titel}
+\lfoot{\datum}
+\rfoot{Pagina \thepage \hspace{1pt} /  \pageref{LastPage}}
+
+%Settings for document spacing
+\titlespacing{\section}{0pt}{*0}{*0}
+\titlespacing{\subsection}{0pt}{*0}{*0}
+\titlespacing{\subsubsection}{0pt}{*0}{*0}
+
+%Settings for code sinppeds
+\lstset{basicstyle=\ttfamily,
+	showstringspaces=false,
+	commentstyle=\color{red},
+	keywordstyle=\color{blue},
+	columns=fullflexible,
+	frame=single,
+	breaklines=true,
+	postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+}
+
+\begin{document}
+	
+	\begin{titlepage}
+		
+		\centering
+		{\huge\bfseries \titel \par}
+		
+		\vspace{1cm}
+		{\Large\itshape \auteureen \par}
+		{\Large\itshape \auteurtwee \par}
+		\vspace{1cm}
+		{\Large\itshape versie \versie\par}
+				
+		\vfill
+		Vak:\par
+		TDS01
+		
+		\vfill
+		{\large \datum \par}
+	\end{titlepage}
+
+	\section{Samenvatting}
+
+Het vak Training Digitale Signaalbewerking (TDS02) leert de studenten van de minor 'Embedded systems' om de theorie die hoort bij Digitale Signaal Bewerking (DSB) in de praktijk te brengen. Het doel van digitale signaalbewerking is om met de informatie van het ingangssignaal een uitgangssignaal te produceren die bruikbaar is voor een bepaalde toepassing. 
+
+Omdat digitale filters veel gebruikt worden voor toepassingen in DSB, worden de studenten gevraagd om twee verschillende soorten filters te bouwen voor dit vak: Een 'finite impulse response' (FIR) filter en een 'infinite impulse response' (IIR) filter. 
+
+De requirements  voor deze assignments krijgen de studenten van hun docenten. Voor onze FIR assignment moesten we een hoogdoorlaatfilter maken en voor de IIR assignment moesten we een bandstopfilter. 
+	
+De werkwijze van het uitvoeren van de assignments begint met het maken van de filter in matlab. Vervolgens kunnen de coefficienten door matlab geproduceerd worden die nodig zijn voor de digitale filter. Met die coefficienten kan de code voor de filter worden geschreven in CCS. Die code moet vervolgens op het DSP development-bordje worden geupload. Een pulsgenerator wordt dan aangesloten op het ingangssignaal van dat bordje en de audio-ingang van een computer wordt aangesloten op de het uitgangssignaal van het development-bordje, waardoor op die computer een scoopbeeld gegenereerd kan worden m.b.v. software voor scoopbeelden. 
+
+De grootste uitdaging van deze assignments bleek te zitten in de wiskundige formules die we in de code moesten toepassen. Vooral voor de IIR filter was dit een uitdaging en is er helaas niet volledig voldaan aan de eisen die door de docenten gesteld zijn. 
+
+Kwa code is een deel van de CXX stof meegenomen. Zo hebben we een struct waar de staat en informatie over de buffers van de filters in wordt opgeslagen. Daar kunnen vervolgens bewerkingen op worden gedaan. Zoal het opslaan van nieuwe samples en het berekenen van een outputsample. Dit maakte de code beter leesbaar en herbruikbaar.
+	 
+		
+	
+	\clearpage
+	
+	\tableofcontents
+	
+	\clearpage
+	
+	\listoffigures
+	
+	\clearpage
+	\listoftables
+	
+	\clearpage
+	
+	\section{Versiehistorie}
+	\begin{table}[H]
+		\centering
+		\label{Versiehistorie}
+		\begin{tabular}{|p{1cm}|p{2cm}|p{6cm}|p{2cm}|}
+			\hline
+			\rowcolor[HTML]{FFCC67}
+			\textbf{Versie} & \textbf{Datum} & \textbf{Wijzigingen} & \textbf{Auteur} \\ \hline
+			0.1    & 25-10-2017 & Template    & Tim \\ \hline
+			0.2	   & 31-10-2017 & Oplevering eerste versie  & Groep \\ \hline
+			&       &             &        \\ \hline
+		\end{tabular}
+		\caption {Versiehistorie} \label{tab:title} 
+	\end{table}	
+
+
+	\section{Introductie}
+		\subsection{Het vak}
+		TDS02 is een van de vakken die tijdens de minor 'Embedded Systems' wordt gegeven. Het vak bestaat voornamelijk uit practicum assignments die de studenten in groepjes van twee dienen te voltooien. In de eerste weken begint de les met een uitleg van de docent over de theorie achter deze assignments, die het doel hebben om de studenten te trainen in digitale signaalbewerking. Om de assignments te voltooien dienen de studenten gebruik te maken van de 'C5505 eZdsp Development Tool' van Texas Instruments.
+		
+		\subsection{Introductie DSP}
+		Volgens Analog Devices \cite{analog} is een DSP een processor die een gedigitaliseerd signaal als geluid, video, temperatuur of positie op wiskundige wijze manipuleerd. Analog Devices ligt toe dat een DSP wordt ontworpen om berekeningen als 'optellen', 'aftrekken', 'vermenigvuldigen' en 'delen' in korte tijd te kunnen voltooien. Het doel van deze berekeningen is om met de informatie van het ingangssignaal een uitgangssignaal te produceren die bruikbaar is voor een bepaalde toepassing. 
+		
+		\subsection{Digitale filter}
+		Volgens Steven W. Smith \cite{DSPguide} bewerkt een digitale filter een digitaal en tijd-discreet signaal om bepaalde frequenties uit dat signaal te verzwakken. In de telecomunicatie wordt bijvoorbeeld het signaal van het bericht gemengd met de draaggolf van het bericht. Om dit bericht vervolgens uit te kunnen lezen moet er een filter gebruikt worden om de frequenties van het draaggolfsignaal eruit te filteren. Dit kan gedaan worden m.b.v. een analoge of digitale filter. Analoge filters hebben een groot bereik met zowel amplitude als frequentie. Ook kunnen analoge filters heel precies worden ingesteld. Digitale filters hebben echter meer voordelen dan analoge filters. Digitale filters zijn flexibel, betrouwbaar, makkelijk in schaal te vergroten en om de complexiteit van een filter te verhogen moet de software worden aangepast i.p.v. de hardware. 
+		
+Om analoge signalen digitaal te kunnen filteren moeten de signalen worden gesampled en gekwantificeerd worden. Hierdoor ontstaat een digitaal en tijd-discreet signaal. 
+
+Filters kunnen gezien worden als een overdrachtsfunctie:
+ 
+\[
+    H(s) = \frac{Y(s)}{X(s)}
+\]	
+
+Waarbij X(s) de input is van de filter en Y(s) de uitgang van de filter. 
+
+De overdrachtsfunctie kan gespecificeerd worden in het frequentiedomein en is een wiskundige formule die het gedrag van de filter omschrijft.  
+
+		
+	\subsection{De opdracht}		
+		
+	\input{fir.tex}
+	\input{iir.tex}
+
+	\section{Optimalisatie}
+	De enige optimalisaties is uitgevoerd heeft niets te maken met de prestaties tijdens het uitvoeren op de EzDSP. Alleen is de leesbaarheid van de code verbeterd doordat de staat van de filters in een struct wordt bijgehouden. Er zijn functies beschreven die iets in de buffer op kunnen slaan of een output sample kunnen berekenen. Hierdoor is de code ook beter herbruikbaar. 
+	
+ 
+	\section{Conclusie en aanbevelingen}
+	Tijdens TDS word er aardig wat wiskunde gebruikt. Dit moet ook worden gebruikt tijdens het progammeren. Dit kwam in het begin vrij intimiderend over. De eerste vier opgaven waren bij lange na niet zo moeilijk als 5 en 6. 
+	Het ontwikkelen van een FIR filter viel achteraf nog erg mee vergeleken met het ontwikkelen van het IIR filter, dit kwam vooral omdat fouten niet meteen duidelijk waren bij een FIR filter. Kleine foutjes hadden namelijk een kleine invoud op de uitvoer. 
+	Bij IIR zorgte ieder kleine foutje ervoor dat het filter niet werkte. Dit komt omdat de uitvoer tijdens het ene output sample weer werd meegenomen in de berekening van het volgende output sample.
+
+	De laatste week dat we de tijd hadden om de opgaven 6a en 6b af te laten tekenen is het realiseren van een single section IIR filter gelukt. Hierna was geen tijd meer om een filter met meerdere secties te realiseren.
+	Het filter dat gerealiseerd hoordde te worden was vrij complex en niet goed realiseerdbaar met een single section filter. Met de docent is daarom besproken om de eisen van ons filter iets te verlagen, ten kosten van het eindcijfer. Met meer tijd had het wel gelukt om dit filter volledig te realiseren. 
+	\bibliographystyle{plain}
+	\bibliography{bibligraphy}
+		
+	\begin{thebibliography}{9}
+
+	\bibitem{analog}
+  		
+  		\textit{A Beginner's Guide to Digital Signal Processing (DSP)},
+  		Analog Devices,
+  		URL: http://www.analog.com/en/design-center/landing-pages/001/beginners-guide-to-dsp.html 
+  		
+	\bibitem{DSPguide}
+  		
+  		\textit{Scientist and Engineer's Guide to Digital Signal Processing},
+  		Steven W. Smith, Ph.D., 
+  		Bertrams,
+  		Hoofdstuk 14,
+  		1998.  		
+		
+	\end{thebibliography}
+
+\end{document}
