@@ -1,8 +1,8 @@
 \section{Ontwerp en realisatie FIR filter}
 
 \subsection{What where the requirements for this filter?}
-Het filter dat ons groepje heeft moeten implementeren was een hoogdoorlaatfilter met een cut-off frequentie van 1500 hertz. 
-Het filter moet een minimale orde van 20 hebben. Er moest gebruik worden gemaakt van het blackmann-window.
+Het filter dat moest worden gerealiseerd is een hoogdoorlaatfilter met een cut-off frequentie van 1500 Hertz. 
+Het filter moest een minimale orde van 20 hebben. Er moest gebruik worden gemaakt van het blackmann window.
 
 \subsection{How are the coefficients determined?}
 Als samplerate is gekozen voor 8000 hertz. Dit is genoeg om de werking van het filter te kunnen aantonen, maar maakt het filter ongeschikt voor toepassingen in geluid. 
@@ -11,12 +11,13 @@ Het filter is gequantificeerd voor fixed-point getallen. Dit omdat de EzDSP bete
 
 
     \begin{enumerate}[label=\emph{\alph*)}]
+        \litem{orde} 100'ste
         \litem{type} FIR: window
         \litem{window} Blackmann
         \litem{Fsample} 8kHz
         \litem{Fcutoff} 1500Hertz
     \end{enumerate}
-    
+
     \subsection{Matlab}
     
     \includegraphics[width=0.80\textwidth]{firMatlab}\par\vspace{1cm}
