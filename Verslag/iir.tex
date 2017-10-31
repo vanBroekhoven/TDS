@@ -1,17 +1,22 @@
 \section{Ontwerp en realisatie IIR filter}
 
 \subsection{Requirements IIR filter}
-
+Het IIR filter moet een Band-Stop filter worden. De minimale orde die verwacht wordt is er een van 20. Het filter moet alle frequenties tussen 800 en 1000 hertz dempen. Het type Chebyshev I zal worden toegepast.
 \subsection{Coefficienten bepalen}
 
 \begin{enumerate}[label=\emph{\alph*)}]
-    \litem{item} Describe the settings you 					used in MATLAB’s FDAtool and explain the 					choices you made.
+    \litem{Orde} teruggeschroeft naar 4 om het filter met een elkele sectie stabiel te krijgen.
+    \litem{Fsample} teruggeschroeft om het filter stabiel te krijgen.
+    \litem{Fixed-point} getallen gebruikt omdat deze geschikt zijn voor de EzDSP. Deze bevat voor Floating-point getallen namelijk geen hardware ondersteuning.
 \end{enumerate}
+
+Er drijgde een gebrek aan tijd tijdens het uitvoeren van de laatste opdracht, hierdoor was het niet meer mogelijk om ondersteuning te maken voor een filter dat bestaat uit meerdere secties. 
+Daarop is in oveleg met Dhr. Broeders besloten om een filter te maken dat uit een enkele sectie bestaat. Hiervoor hebben we de orde echter moeten terugschroeven, maar dit was dit geval geen probleem mits dit in het verslag werd beschreven. 
 
 \subsection{Matlab}
 
 \includegraphics[width=0.80\textwidth]{iirMatlab}\par\vspace{1cm}		
-
+\clearpage
 \subsection{Code}
 
 \subsubsection{de main code.}
@@ -21,7 +26,6 @@
 #include <usbstk5505_led.h>
 #include <csl_intc.h>
 #include <iir_buffer.h>
-
 #include "aic3204.h"
 #include "iir_fdacoefs3.h"
 
@@ -32,7 +36,7 @@
 
 extern void VECSTART(void);
 
-
+ 
 IIRBuffer *buffer;
 interrupt void I2S0receive() {
 iir_buffer_store_sample(buffer, AIC3204_readLeft());
